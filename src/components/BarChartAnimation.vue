@@ -7,7 +7,7 @@
 <script>
 import { defineComponent, onMounted } from "vue";
 
-const d3 = await import("d3");
+const d3 = import("d3");
 import { max, min } from "d3";
 
 import { precipitation } from "../datum/precipitation";
