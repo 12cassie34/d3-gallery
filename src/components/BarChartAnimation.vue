@@ -6,9 +6,7 @@
 
 <script>
 import { defineComponent, onMounted } from "vue";
-
-const d3 = import("d3");
-import { max, min } from "d3";
+import * as d3 from "d3";
 
 import { precipitation } from "../datum/precipitation";
 
@@ -66,7 +64,7 @@ export default defineComponent({
         .padding(barPadding);
       yScale = d3
         .scaleLinear()
-        .domain([0, max(precipitation, yValue)])
+        .domain([0, d3.max(precipitation, yValue)])
         .range([height, 0]);
       tooltip = d3.select(".tooltip");
     };
@@ -99,7 +97,7 @@ export default defineComponent({
       const barGroup = d3.select("#bar-chart-svg");
       const yAxisScale = d3
         .scaleLinear()
-        .domain([min(precipitation, yValue), max(precipitation, yValue)])
+        .domain([d3.min(precipitation, yValue), max(precipitation, yValue)])
         .range([height, 0]);
 
       const yAxis = d3.axisRight(yAxisScale).ticks(10);

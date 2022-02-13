@@ -6,7 +6,7 @@
 
 <script>
 import { defineComponent, onMounted } from "vue";
-const d3 = await import("d3");
+import * as d3 from "d3";
 
 import { temperatureDatum } from "../datum/temperature30Days";
 
